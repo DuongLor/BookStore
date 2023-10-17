@@ -10,6 +10,6 @@ class promotion extends Model
     use HasFactory;
 		protected $table = 'promotions';
 		protected $fillable = [
-			'name','description','discount'
+			'discount','start_date','end_date'
 		];
 }

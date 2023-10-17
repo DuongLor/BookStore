@@ -1,47 +1,64 @@
 <nav class="side-nav">
     <a href="#" class="intro-x flex items-center pl-5 pt-4">
-        <img alt="Midone - HTML Admin Template" class="w-6" src="dist/images/logo.svg">
+        <img alt="Midone - HTML Admin Template" class="w-6" src="{{ asset('dist/images/logo.svg') }}">
         <span class="hidden xl:block text-white text-lg ml-3"> BookStore </span>
     </a>
     <div class="side-nav__devider my-6"></div>
     <ul>
         <li>
-            <a href="{{route('admin.dashboard')}}" class="side-menu">
+            <a href="{{ route('admin.dashboard') }}" class="side-menu">
                 <div class="side-menu__icon"> <i data-lucide="inbox"></i> </div>
                 <div class="side-menu__title"> Dashboard </div>
             </a>
         </li>
         <li>
-            <a href="side-menu-dark-file-manager.html" class="side-menu">
+            <a href="{{ route('admin.book') }}" class="side-menu">
                 <div class="side-menu__icon"> <i data-lucide="hard-drive"></i> </div>
                 <div class="side-menu__title"> Book </div>
             </a>
         </li>
         <li>
-            <a href="side-menu-dark-point-of-sale.html" class="side-menu">
+            <a href="{{ route('admin.author') }}" class="side-menu">
                 <div class="side-menu__icon"> <i data-lucide="credit-card"></i> </div>
                 <div class="side-menu__title"> Author </div>
             </a>
         </li>
         <li>
-            <a href="side-menu-dark-chat.html" class="side-menu">
+            <a href="{{ route('admin.rating') }}" class="side-menu">
                 <div class="side-menu__icon"> <i data-lucide="message-square"></i> </div>
-                <div class="side-menu__title"> Chat </div>
+                <div class="side-menu__title"> Rating </div>
             </a>
         </li>
         <li>
-            <a href="side-menu-dark-post.html" class="side-menu">
+            <a href="{{ route('admin.genre') }}" class="side-menu">
                 <div class="side-menu__icon"> <i data-lucide="file-text"></i> </div>
-                <div class="side-menu__title"> Post </div>
+                <div class="side-menu__title"> Genre </div>
             </a>
         </li>
         <li>
-            <a href="side-menu-dark-calendar.html" class="side-menu">
+            <a href="{{ route('admin.invoice') }}" class="side-menu">
                 <div class="side-menu__icon"> <i data-lucide="calendar"></i> </div>
-                <div class="side-menu__title"> Calendar </div>
+                <div class="side-menu__title"> Invoice </div>
             </a>
         </li>
-
+        <li>
+            <a href="{{ route('admin.user') }}" class="side-menu">
+                <div class="side-menu__icon"> <i data-lucide="calendar"></i> </div>
+                <div class="side-menu__title"> User </div>
+            </a>
+        </li>
+        <li>
+            <a href="{{ route('admin.promotion') }}" class="side-menu">
+                <div class="side-menu__icon"> <i data-lucide="calendar"></i> </div>
+                <div class="side-menu__title"> Promotion </div>
+            </a>
+        </li>
+        <li>
+            <a href="{{ route('admin.banner') }}" class="side-menu">
+                <div class="side-menu__icon"> <i data-lucide="calendar"></i> </div>
+                <div class="side-menu__title"> Banner </div>
+            </a>
+        </li>
     </ul>
 </nav>
 <!-- END: Side Menu -->
@@ -53,7 +70,7 @@
         <nav aria-label="breadcrumb" class="-intro-x mr-auto hidden sm:flex">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#">Application</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                <li class="breadcrumb-item active" aria-current="page">@yield('title')</li>
             </ol>
         </nav>
         <!-- END: Breadcrumb -->
@@ -83,7 +100,7 @@
                         <a href="#" class="flex items-center mt-2">
                             <div class="w-8 h-8 image-fit">
                                 <img alt="Midone - HTML Admin Template" class="rounded-full"
-                                    src="dist/images/profile-9.jpg">
+                                    src="{{ asset('dist/images/profile-9.jpg') }}">
                             </div>
                             <div class="ml-3">Will Smith</div>
                             <div class="ml-auto w-48 truncate text-slate-500 text-xs text-right">willsmith@left4code.com
@@ -94,7 +111,7 @@
                     <a href="#" class="flex items-center mt-2">
                         <div class="w-8 h-8 image-fit">
                             <img alt="Midone - HTML Admin Template" class="rounded-full"
-                                src="dist/images/preview-9.jpg">
+                                src="{{ asset('dist/images/preview-9.jpg') }}">
                         </div>
                         <div class="ml-3">Oppo Find X2 Pro</div>
                         <div class="ml-auto w-48 truncate text-slate-500 text-xs text-right">Smartphone &amp; Tablet
@@ -115,7 +132,7 @@
                     <div class="cursor-pointer relative flex items-center mt-5">
                         <div class="w-12 h-12 flex-none image-fit mr-1">
                             <img alt="Midone - HTML Admin Template" class="rounded-full"
-                                src="dist/images/profile-3.jpg">
+                                src="{{ asset('dist/images/profile-3.jpg') }}">
                             <div
                                 class="w-3 h-3 bg-success absolute right-0 bottom-0 rounded-full border-2 border-white dark:border-darkmode-600">
                             </div>
@@ -138,7 +155,7 @@
         <div class="intro-x dropdown w-8 h-8">
             <div class="dropdown-toggle w-8 h-8 rounded-full overflow-hidden shadow-lg image-fit zoom-in"
                 role="button" aria-expanded="false" data-tw-toggle="dropdown">
-                <img alt="Midone - HTML Admin Template" src="dist/images/profile-1.jpg">
+                <img alt="Midone - HTML Admin Template" src="{{ asset('dist/images/profile-9.jpg') }}">
             </div>
             <div class="dropdown-menu w-56">
                 <ul class="dropdown-content bg-primary text-white">
