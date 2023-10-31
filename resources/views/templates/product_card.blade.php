@@ -44,7 +44,7 @@
                 @if ($promotion != null)
                     @php
                         $currentDate = now();
-                        $checkDate = 1;
+                        $checkDate = $currentDate->between($promotion->start_date, $promotion->end_date);
                     @endphp
                     @if ($checkDate)
                         <div class="d-flex">

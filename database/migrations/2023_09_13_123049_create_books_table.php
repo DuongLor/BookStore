@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('author_id');
             $table->string('genre_id');
-						$table->string('promotion_id');
+						$table->string('promotion_id')->nullable();
             $table->text('image');
             $table->text('description');
             $table->integer('price');

@@ -19,18 +19,18 @@
                         <a class="nav-link" href="{{ route('client.home') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">Giỏ hàng</a>
+                        <a class="nav-link" href="{{ route('client.cart') }}">Giỏ hàng</a>
                     </li>
                     @if (Auth::check())
                         <li class="nav-item">
-                            <a class="nav-link" href="">Hóa đơn</a>
+                            <a class="nav-link" href="{{route('client.order.list')}}">Hóa đơn</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="">Đăng xuất</a>
+                            <a class="nav-link" href="{{route('logout')}}">Đăng xuất</a>
                         </li>
                         @if (Auth::user()->role == 1)
                             <li class="nav-item">
-                                <a class="nav-link" href="">Admin</a>
+                                <a class="nav-link" href="{{route('admin')}}">Admin</a>
                             </li>
                         @endif
                     @else
@@ -56,16 +56,15 @@
                     data-bs-target="#templatemo_search">
                     <i class="fa fa-fw fa-search text-dark mr-2"></i>
                 </a>
-                <a class="nav-icon position-relative text-decoration-none" href="#">
+                <a class="nav-icon position-relative text-decoration-none" href="{{route('client.cart')}}">
                     <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
                     <span
                         class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">
-
                         {{ session()->get('cart') != null ? count(session()->get('cart')) : '0' }}
 											</span>
                 </a>
                 @if (Auth::check())
-                    <a class="nav-icon position-relative text-decoration-none" href="">
+                    <a class="nav-icon position-relative text-decoration-none" href="{{ route('client.profile') }}">
                         <img src="{{ asset(Auth::user()->image) }}" width="35" alt="Avatar"
                             class="rounded-circle">
                     </a>

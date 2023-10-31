@@ -60,6 +60,7 @@
             <div class="form-group mb-2">
                 <div> <label>Promotion</label>
                     <div class="mt-2"> <select class="tom-select w-full" name="promotion_id">
+                            <option value=""></option>
                             @foreach ($promotions as $item)
                                 <option value="{{ $item->id }}">{{ $item->discount }}</option>
                             @endforeach

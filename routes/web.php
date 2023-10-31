@@ -6,12 +6,15 @@ use App\Http\Controllers\Admin\BookController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\AthurController;
 use App\Http\Controllers\Admin\GenreController;
+use App\Http\Controllers\Client\CartController;
 use App\Http\Controllers\Client\HomeController;
+use App\Http\Controllers\Client\OderController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\RatingController;
 use App\Http\Controllers\Admin\InvoiceController;
 use App\Http\Controllers\Client\ReviewController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Client\ProfileController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PromotionController;
 use App\Http\Controllers\Client\ClientBookController;
@@ -34,6 +37,10 @@ Route::get('/', [HomeController::class, 'index'])->name('client.home');
 Route::post('/cart/create', [CartController::class, 'create'])->name('client.cart.create');
 //client home
 Route::get('/', [HomeController::class, 'index'])->name('client.home');
+// client.search
+Route::post('/search', [HomeController::class, 'search'])->name('client.search');
+// client.genre
+Route::get('/genre/{genre}', [HomeController::class, 'genre'])->name('client.genre');
 // client.detail
 Route::get('/detail/{book}', [ClientBookController::class, 'detail'])->name('client.detail');
 // cart
@@ -46,13 +53,13 @@ Route::get('/cart/delete', [CartController::class, 'destroyAll'])->name('client.
 //client.promotion post
 Route::post('/promotion/addPromotion', [ClientPromotionController::class, 'addPromotion'])->name('client.promotion.addToCart');
 //order
-Route::get('/order', [OrderController::class, 'index'])->name('client.order.index');
+Route::get('/order', [OderController::class, 'index'])->name('client.order.index');
 // client.order.create
-Route::post('/order/create', [OrderController::class, 'create'])->name('client.order.create');
+Route::post('/order/create', [OderController::class, 'create'])->name('client.order.create');
 //client.order.list
-Route::get('/order/list', [OrderController::class, 'list'])->name('client.order.list');
+Route::get('/order/list', [OderController::class, 'list'])->name('client.order.list');
 // client.order.detail
-Route::get('/order/detail/{order}', [OrderController::class, 'detail'])->name('client.order.detail');
+Route::get('/order/detail/{order}', [OderController::class, 'detail'])->name('client.order.detail');
 Route::middleware('auth')->group(function () {
 	//client.profile
 	Route::get('/profile', [ProfileController::class, 'index'])->name('client.profile');
@@ -67,10 +74,10 @@ Route::match(['get', 'post'], '/register', [AuthController::class, 'register'])-
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 //admin
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function () {
 
 	//Dashboard
-	Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
+	Route::get('/', [DashboardController::class, 'index'])->name('admin');
 
 	//Author
 	Route::get('/Author', [AthurController::class, 'index'])->name('admin.author');

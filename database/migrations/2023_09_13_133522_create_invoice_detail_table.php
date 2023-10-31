@@ -18,6 +18,7 @@ return new class extends Migration
 			$table->integer('quantity');
 			$table->string('discount');
 			$table->string('price');
+			$table->decimal('total', 10, 0); // Trường price (giá)
 			$table->timestamps();
 		});
 	}

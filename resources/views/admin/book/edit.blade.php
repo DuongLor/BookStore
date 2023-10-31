@@ -70,6 +70,8 @@
                             @foreach ($promotions as $item)
                                 @if ($item->id == $book->promotion_id)
                                     <option value="{{ $item->id }}" selected>{{ $item->discount }}</option>
+                                @else
+                                    <option value="">Không giảm giá</option>
                                 @endif
                             @endforeach
                         </select> </div>

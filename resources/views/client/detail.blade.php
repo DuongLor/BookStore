@@ -29,7 +29,7 @@
                             @if ($promotion != null)
                                 @php
                                     $currentDate = now();
-                                    $checkDate = 1;
+                                    $checkDate = $currentDate->between($promotion->start_date, $promotion->end_date);
                                 @endphp
                                 @if ($checkDate)
                                     <div class="d-flex">
@@ -51,7 +51,6 @@
                                 @php
                                     $sumRatings = $ratings_by_book->sum('rating');
                                     $averageRating = $sumRatings / $ratings_by_book->count();
-
                                 @endphp
 
                                 <p class="py-2">

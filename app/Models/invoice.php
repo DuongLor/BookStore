@@ -10,6 +10,6 @@ class invoice extends Model
     use HasFactory;
 		protected $table = 'invoices';
 		protected $fillable = [
-			'user_id','name','phone','address','total','status','date','invoice'
+			'user_id','name','phone','address','total_amount'
 		];
 }

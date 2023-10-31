@@ -6,7 +6,7 @@
     <div class="side-nav__devider my-6"></div>
     <ul>
         <li>
-            <a href="{{ route('admin.dashboard') }}" class="side-menu">
+            <a href="{{ route('admin') }}" class="side-menu">
                 <div class="side-menu__icon"> <i data-lucide="inbox"></i> </div>
                 <div class="side-menu__title"> Dashboard </div>
             </a>

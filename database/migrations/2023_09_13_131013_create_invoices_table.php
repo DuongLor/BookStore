@@ -13,15 +13,12 @@ return new class extends Migration
 	{
 		Schema::create('invoices', function (Blueprint $table) {
 			$table->id();
-			$table->string('user_id');
+			$table->string('user_id')->nullable();
+			$table->decimal('total_amount', 10, 0);
+			$table->integer('status')->default(0);
 			$table->string('name');
-			$table->string('phone');
 			$table->string('address');
-			$table->string('total');
-			$table->string('status');
-			$table->date('date');
-			$table->string('invoice');
-
+			$table->string('phone');
 			$table->timestamps();
 		});
 	}

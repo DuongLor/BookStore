@@ -40,7 +40,8 @@
                 <div class="col-lg-3 col-md-4 mb-4">
                     <div class="card">
                         <div class="card-body">
-                            <a class="text-decoration-none text-dark" href="">
+                            <a class="text-decoration-none text-dark"
+                                href="{{ route('client.genre', ['genre' => $genre->id]) }}">
                                 <h5 class="card-title">{{ $genre->name }}</h5>
                             </a>
                         </div>
@@ -59,7 +60,7 @@
                     <div class="card">
                         <div class="card-body">
                             <a class="text-decoration-none text-dark" href="">
-                                    @include('templates.product_card', ['book' => $item])
+                                @include('templates.product_card', ['book' => $item])
                             </a>
                         </div>
                     </div>

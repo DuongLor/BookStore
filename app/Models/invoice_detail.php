@@ -7,9 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class invoice_detail extends Model
 {
-    use HasFactory;
-		protected $table = 'invoice_detail';
-		protected $fillable = [
-			'invoice_id','book_id','quantity','price','discount'
-		];
+	use HasFactory;
+	protected $table = 'invoice_detail';
+	protected $fillable = [
+		'invoice_id', 'book_id', 'quantity', 'price', 'discount' , 'total'
+	];
+	public function book()
+	{
+		return $this->belongsTo(book::class);
+	}
 }

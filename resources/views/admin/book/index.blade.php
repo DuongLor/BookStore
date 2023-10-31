@@ -49,7 +49,7 @@
                         <td class="text-center">{{ $book->title }}</td>
                         <td class="text-center">{{ $book->author->name }}</td>
                         <td class="text-center">{{ $book->genre->name }}</td>
-                        <td class="text-center">{{ $book->promotion->discount }}</td>
+                        <td class="text-center">{{ $book->promotion->discount ?? 'No Promotion' }}</td>
                         <td class="d-flex justify-content-center align-items-center  " width="100px"><img
                                 src="{{ asset($book->image) }}" alt=""></td>
                         <td class="text-center">{{ $book->description }}</td>
