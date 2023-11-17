@@ -18,8 +18,8 @@ class HomeController extends Controller
 		//
 		$banners = banner::all();
 		$genres = genre::all();
-		$books = book::all();
-		$books_promiment = book::where('prominent', 0)->get();
+		$books = book::latest()->paginate(12);
+		$books_promiment = book::where('prominent', 0)->paginate(4);
 		return view('client.home', compact('banners', 'genres', 'books', 'books_promiment'));
 	}
 
@@ -29,21 +29,26 @@ class HomeController extends Controller
 	public function search(Request $request)
 	{
 		$search = $request->search;
-		$books = book::where('title', 'like', '%' . $search . '%')->get();
+		$search_books = book::where('title', 'like', '%' . $search . '%')->latest()->paginate(12);
+		if ($search_books->count() == 0) {
+			// trả về lỗi 404
+			abort(404);
+		}
 		$banners = banner::all();
 		$genres = genre::all();
 		$books = book::all();
-		$books_promiment = book::where('prominent', 0)->get();
-		return view('client.home', compact('banners', 'genres', 'books', 'books_promiment'));
+		$books_promiment = book::where('prominent', 0)->paginate(4);
+
+		return view('client.search', compact('banners', 'genres', 'search_books', 'books_promiment'));
 	}
 	public function genre($id)
 	{
-		$books = book::where('genre_id', $id)->get();
+		$genre_books = book::where('genre_id', $id)->latest()->paginate(12);
 		$banners = banner::all();
 		$genres = genre::all();
 		$books = book::all();
-		$books_promiment = book::where('prominent', 0)->get();
-		return view('client.home', compact('banners', 'genres', 'books', 'books_promiment'));
+		$books_promiment = book::where('prominent', 0)->paginate(4);
+		return view('client.genre', compact('banners', 'genres', 'genre_books', 'books_promiment'));
 	}
 	public function create()
 	{

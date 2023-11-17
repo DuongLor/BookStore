@@ -51,4 +51,9 @@
                 @endforeach
             </tbody>
         </table>
+        <div class="intro-y col-span-12 flex flex-wrap sm:flex-row sm:flex-nowrap items-center" style="margin-left: 475px; margin-top: 40px">
+            <nav class="w-full sm:w-auto sm:mr-auto">
+                {{ $promotions->links('pagination::bootstrap-4') }}
+            </nav>
+        </div>
     @endsection

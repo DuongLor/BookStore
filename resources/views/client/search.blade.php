@@ -76,8 +76,8 @@
             <div class="row">
                 <div class="col-12 rounded shadow p-4 " style="background-color: white">
                     <div class="row ">
-                        <h1 class="">Sách ({{ count($books) }} quyển)</h1>
-                        @foreach ($books as $book)
+                        <h1 class="">Sách ({{ count($search_books) }} quyển)</h1>
+                        @foreach ($search_books as $book)
                             <div class="col-lg-3 col-md-4 mb-4">
                                 @include('templates.product_card', ['book' => $book])
                             </div>
@@ -87,7 +87,7 @@
                     <!-- BEGIN: Pagination -->
                     <div class="d-flex justify-content-center">
                         <nav class="d-inline-block">
-                            {{ $books->links('pagination::bootstrap-4') }}
+                            {{ $search_books->links('pagination::bootstrap-4') }}
                         </nav>
                     </div>
                     <!-- END: Pagination -->

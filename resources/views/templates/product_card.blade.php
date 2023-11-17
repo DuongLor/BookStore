@@ -21,7 +21,7 @@
                 <a href="#" class="text-dark text-decoration-none">Tên: {{ $book->title }}</a>
             </h5>
             <p class="card-text flex-grow-1">
-                <a href="#" class="text-muted text-decoration-none">Tác giả{{ $book->author->name }}</a>
+                <a href="#" class="text-muted text-decoration-none">Tác giả: {{ $book->author->name }}</a>
             </p>
             <div class="">
                 @if ($ratings_by_book->count() > 0)

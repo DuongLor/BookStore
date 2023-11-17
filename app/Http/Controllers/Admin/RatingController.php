@@ -12,7 +12,7 @@ class RatingController extends Controller
 	//
 	public function index()
 	{
-		$ratings = rating::all()->where('role', 1);
+		$ratings = rating::latest()->paginate(10);
 		return view('admin.rating.index', compact('ratings'));
 	}
 	public function destroy($id)

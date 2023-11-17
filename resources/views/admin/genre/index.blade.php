@@ -1,7 +1,8 @@
 @extends('admin.templates.app')
 @section('title', 'Genre')
 @section('content')
-    <a href="{{ route('admin.genre.create') }}" class="btn btn-primary shadow-md mr-2 mb-3 "  style="width: 200px">Add New genre</a>
+    <a href="{{ route('admin.genre.create') }}" class="btn btn-primary shadow-md mr-2 mb-3 " style="width: 200px">Add New
+        genre</a>
     <div class="overflow-x-auto w-full">
         <table class="table">
             <thead>
@@ -26,7 +27,8 @@
                                         <polyline points="9 11 12 14 22 4"></polyline>
                                         <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"></path>
                                     </svg> Edit </a>
-                                <a class="flex items-center text-danger" href="{{ route('admin.genre.delete', $genre->id) }}" data-tw-toggle="modal"
+                                <a class="flex items-center text-danger"
+                                    href="{{ route('admin.genre.delete', $genre->id) }}" data-tw-toggle="modal"
                                     data-tw-target="#delete-confirmation-modal"> <svg xmlns="http://www.w3.org/2000/svg"
                                         width="24" height="24" viewBox="0 0 24 24" fill="none"
                                         stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -44,4 +46,9 @@
                 @endforeach
             </tbody>
         </table>
+        <div class="intro-y col-span-12 flex flex-wrap sm:flex-row sm:flex-nowrap items-center" style="margin-left: 475px; margin-top: 40px">
+            <nav class="w-full sm:w-auto sm:mr-auto">
+                {{ $authors->links('pagination::bootstrap-4') }}
+            </nav>
+        </div>
     @endsection

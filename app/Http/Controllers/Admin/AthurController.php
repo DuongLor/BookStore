@@ -11,7 +11,7 @@ class AthurController extends Controller
 	//
 	public function index()
 	{
-		$authors = author::all();
+		$authors = author::latest()->paginate(10);
 		return view('admin.author.index', compact('authors'));
 	}
 	public function create()

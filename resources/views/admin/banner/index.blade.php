@@ -17,8 +17,7 @@
                     <tr>
                         <td class="text-center">{{ $key + 1 }}</td>
                         <td class="d-flex justify-content-center align-items-center " width="200px"><img
-                                src="{{ asset($banner->image) }}" alt=""
-                                ></td>
+                                src="{{ asset($banner->image) }}" alt=""></td>
                         <td class="text-center">
                             <div class="flex justify-center items-center">
                                 <a class="flex items-center mr-3" href="{{ route('admin.banner.edit', $banner->id) }}"> <svg
@@ -48,4 +47,9 @@
                 @endforeach
             </tbody>
         </table>
+        <div class="intro-y col-span-12 flex flex-wrap sm:flex-row sm:flex-nowrap items-center" style="margin-left: 475px; margin-top: 40px">
+            <nav class="w-full sm:w-auto sm:mr-auto">
+                {{ $banners->links('pagination::bootstrap-4') }}
+            </nav>
+        </div>
     @endsection

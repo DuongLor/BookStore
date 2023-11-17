@@ -22,8 +22,8 @@
                         <td class="text-center">{{ $user->name }}</td>
                         <td class="text-center">{{ $user->email }}</td>
                         <td class="text-center">{{ $user->password }}</td>
-                        <td class="text-center">{{ $user->phone }}</td>
-                        <td class="text-center">{{ $user->address }}</td>
+                        <td class="text-center">{{ $user->phone ?? '0326259983' }}</td>
+                        <td class="text-center">{{ $user->address ?? 'Lê Quý Dương PH24274' }}</td>
                         <td class="d-flex justify-content-center align-items-center  " width="100px"><img
                                 src="{{ asset($user->image) }}" alt=""></td>
                         <td class="text-center">

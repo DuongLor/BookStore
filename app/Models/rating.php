@@ -12,12 +12,12 @@ class rating extends Model
 	protected $fillable = [
 		'rating', 'book_id', 'user_id', 'comment'
 	];
-	public function books()
+	public function book()
 	{
-		return $this->hasMany(Book::class);
+		return $this->belongsTo(Book::class);
 	}
-	public function users()
+	public function user()
 	{
-		return $this->hasMany(User::class);
+		return $this->belongsTo(User::class);
 	}
 }

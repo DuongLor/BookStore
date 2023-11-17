@@ -11,7 +11,7 @@ class InvoiceController extends Controller
 	//
 	public function index()
 	{
-		$invoices = invoice::all();
+		$invoices = invoice::latest()->paginate(10);
 		return view('admin.invoice.index', compact('invoices'));
 	}
 
