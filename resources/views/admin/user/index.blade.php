@@ -8,7 +8,6 @@
                     <th class="whitespace-nowrap text-center">#</th>
                     <th class="whitespace-nowrap text-center">Name</th>
                     <th class="whitespace-nowrap text-center">Email</th>
-                    <th class="whitespace-nowrap text-center">Password</th>
                     <th class="whitespace-nowrap text-center">Phone</th>
                     <th class="whitespace-nowrap text-center">Address</th>
                     <th class="whitespace-nowrap text-center">Image</th>
@@ -21,7 +20,6 @@
                         <td class="text-center">{{ $key + 1 }}</td>
                         <td class="text-center">{{ $user->name }}</td>
                         <td class="text-center">{{ $user->email }}</td>
-                        <td class="text-center">{{ $user->password }}</td>
                         <td class="text-center">{{ $user->phone ?? '0326259983' }}</td>
                         <td class="text-center">{{ $user->address ?? 'Lê Quý Dương PH24274' }}</td>
                         <td class="d-flex justify-content-center align-items-center  " width="100px"><img

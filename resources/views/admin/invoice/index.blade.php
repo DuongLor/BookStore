@@ -12,8 +12,7 @@
                     <th class="whitespace-nowrap text-center">Address</th>
                     <th class="whitespace-nowrap text-center">Total</th>
                     <th class="whitespace-nowrap text-center">Status</th>
-                    <th class="whitespace-nowrap text-center">Data</th>
-                    <th class="whitespace-nowrap text-center">Invoice</th>
+                    <th class="whitespace-nowrap text-center">Date</th>
                     <th class="whitespace-nowrap text-center">Action</th>
                 </tr>
             </thead>
@@ -21,14 +20,21 @@
                 @foreach ($invoices as $key => $invoice)
                     <tr>
                         <td class="text-center">{{ $key + 1 }}</td>
-                        <td class="text-center">{{ $invoice->id_user }}</td>
+                        <td class="text-center">{{ $invoice->user->name ?? '' }}</td>
                         <td class="text-center">{{ $invoice->name }}</td>
                         <td class="text-center">{{ $invoice->phone }}</td>
                         <td class="text-center">{{ $invoice->address }}</td>
-                        <td class="text-center">{{ $invoice->total }}</td>
-                        <td class="text-center">{{ $invoice->status }}</td>
+                        <td class="text-center">{{ $invoice->total_amount }}</td>
+                        <td class="text-center capitalize "> 
+													@if ($invoice->status == 0)
+														<span class="text-pending">Pending</span>
+													@elseif ($invoice->status == 1)
+														<span class="text-success">Success</span>
+													@elseif ($invoice->status == 2)
+														<span class="text-danger">Cancel</span>
+													@endif
+												</td>
                         <td class="text-center">{{ $invoice->created_at }}</td>
-                        <td class="text-center">{{ $invoice->invoice }}</td>
                         <td class="text-center">
                             <div class="flex justify-center items-center">
                                 <a class="flex items-center mr-3" href="{{ route('admin.invoice.edit', $invoice->id) }}">
@@ -46,7 +52,8 @@
                 @endforeach
             </tbody>
         </table>
-        <div class="intro-y col-span-12 flex flex-wrap sm:flex-row sm:flex-nowrap items-center" style="margin-left: 475px; margin-top: 40px">
+        <div class="intro-y col-span-12 flex flex-wrap sm:flex-row sm:flex-nowrap items-center"
+            style="margin-left: 475px; margin-top: 40px">
             <nav class="w-full sm:w-auto sm:mr-auto">
                 {{ $invoices->links('pagination::bootstrap-4') }}
             </nav>

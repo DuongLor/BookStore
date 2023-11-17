@@ -12,4 +12,8 @@ class invoice extends Model
 		protected $fillable = [
 			'user_id','name','phone','address','total_amount'
 		];
+
+		public function user(){
+			return $this->belongsTo(User::class);
+		}
 }
